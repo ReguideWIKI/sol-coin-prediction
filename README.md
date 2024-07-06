@@ -1,6 +1,6 @@
-# Basic ETH price prediction node
+# Basic sol price prediction node
 
-Example Allora network worker node: a node to provide price predictions of ETH.
+Example Allora network worker node: a node to provide price predictions of sol.
 
 One of the primary objectives is to demonstrate the utilization of a basic inference model operating within a dedicated container. The purpose is to showcase its seamless integration with the Allora network infrastructure, enabling it to contribute with valuable inferences.
 
@@ -79,7 +79,7 @@ curl --location 'http://127.0.0.1:6000/api/v1/functions/execute' \
     "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",
     "method": "allora-inference-function.wasm",
     "parameters": null,
-    "topic": "1",
+    "topic": "5",
     "config": {
         "env_vars": [
             {
@@ -88,7 +88,7 @@ curl --location 'http://127.0.0.1:6000/api/v1/functions/execute' \
             },
             {
                 "name": "ALLORA_ARG_PARAMS",
-                "value": "ETH"
+                "value": "SOL"
             }
         ],
         "number_of_nodes": -1,
@@ -126,9 +126,9 @@ Response:
 This setup allows to develop your model without the need for bringing up the head and worker.
 To only test the inference model, you can just:
 - Run `docker compose up --build inference` and wait for the initial data load.
-- Requests can now be sent, e.g. request ETH price inferences as in: 
+- Requests can now be sent, e.g. request sol price inferences as in: 
   ```
-    $ curl http://127.0.0.1:8000/inference/ETH
+    $ curl http://127.0.0.1:8000/inference/SOL
     {"value":"2564.021586281073"}
   ```
   or update the node's internal state (download pricing data, train and update the model):
